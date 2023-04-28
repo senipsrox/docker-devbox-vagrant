@@ -30,11 +30,7 @@ env = {
     'https_proxy' => host_env['https_proxy'],
     'no_proxy' => host_env['no_proxy'],
     'USER' => ssh_username, # La variable d'environment USER n'est pas définie lors du provisionning
-    'CONFIG_LOCALE' => 'fr_FR.UTF-8',
-    'CONFIG_LANGUAGE' => 'fr_FR',
-    'CONFIG_KEYBOARD_LAYOUT' => 'fr',
-    'CONFIG_KEYBOARD_VARIANT' => 'latin9',
-    'CONFIG_TIMEZONE' => 'Europe/Paris'
+
 }
 
 def self.get_host_ip(connect_ip)
@@ -50,7 +46,7 @@ end
 ###############################
 # General project settings
 # -----------------------------
-box_name = config_file['box_name'] || 'ubuntu/jammy64'
+box_name = config_file['box_name'] || 'ubuntu/bionic64'
 box_memory = config_file['box_memory']
 box_cpus = config_file['box_cpus']
 box_cpu_max_exec_cap = config_file['box_cpu_max_exec_cap']

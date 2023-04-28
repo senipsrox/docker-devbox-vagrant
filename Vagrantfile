@@ -46,7 +46,8 @@ end
 ###############################
 # General project settings
 # -----------------------------
-box_name = config_file['box_name'] || 'ubuntu/bionic64'
+box_name = config_file['box_name'] || 'ubuntu/jammy64'
+box_version = '20221120.0.1'
 box_memory = config_file['box_memory']
 box_cpus = config_file['box_cpus']
 box_cpu_max_exec_cap = config_file['box_cpu_max_exec_cap']
@@ -74,6 +75,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = box_name
+  # config.vm.box_version = box_version
   #config.vm.box_download_insecure = true
 
   config.vm.boot_timeout = 600 # default is 300 seconds, but it may be short in some case.
@@ -91,7 +93,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
   config.vm.box_check_update = false
-
+  config.vbguest.auto_update = false
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
